@@ -1,4 +1,8 @@
 import random
+from colorama import init
+from termcolor import colored
+
+init()
 
 stages = [
     """
@@ -98,13 +102,13 @@ display = []
 for char in chosen_word:
     display.append("_")
 
-print("Welcome to Hangman!")
+print(colored("Welcome to Hangman!", "green"))
 print(stages[stage_idx])
 
 while "_" in display:
     print("")
     print(display)
-    guess = input("Guess a letter: ").lower()
+    guess = input(colored("Guess a letter: ", "green")).lower()
 
     # iterates through the chosen_word list, if the letter guessed was correct,
     # the display list is updated
@@ -115,15 +119,20 @@ while "_" in display:
 
     # displays and updates the hangman
     if guess not in display:
-        print("That guess was incorrect.")
+        print(colored("That guess was incorrect.", "red"))
         stage_idx -= 1
         print(stages[stage_idx])
 
     # if the value of the negative indexing of stages == the value of the zero indx
     # the player will lose
     if stages[stage_idx] == stages[0]:
-        print(f"Game over! The correct word was {chosen_word}. Please try again!")
+        print(
+            colored(
+                f"Game over! The correct word was {chosen_word}. Please try again!",
+                "red",
+            )
+        )
         exit()
 
-print(f"\nThe word was {chosen_word}")
-print("Congratulations! You have Won!")
+print(colored(f"\nThe word was {chosen_word}", "green"))
+print(colored("Congratulations! You have Won!", "green"))
