@@ -1,7 +1,10 @@
 import random
 from colorama import init
 from termcolor import colored
+from pyfiglet import Figlet
 
+
+f = Figlet(font="big")
 init()
 
 stages = [
@@ -102,8 +105,8 @@ display = []
 for char in chosen_word:
     display.append("_")
 
-print(colored("Welcome to Hangman!", "green"))
-print(stages[stage_idx])
+print(f.renderText("Hangman!"))
+print(colored(stages[stage_idx], "blue"))
 
 while "_" in display:
     print("")
@@ -121,7 +124,7 @@ while "_" in display:
     if guess not in display:
         print(colored("That guess was incorrect.", "red"))
         stage_idx -= 1
-        print(stages[stage_idx])
+        print(colored(stages[stage_idx], "blue"))
 
     # if the value of the negative indexing of stages == the value of the zero indx
     # the player will lose
