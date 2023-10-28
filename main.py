@@ -1,4 +1,5 @@
 import random
+from data import stages, word_list
 from colorama import init
 from termcolor import colored
 from pyfiglet import Figlet
@@ -7,96 +8,9 @@ from pyfiglet import Figlet
 f = Figlet(font="big")
 init()
 
-stages = [
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========""",
-    """
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-""",
-]
 
 stage_idx = -1
-word_list = [
-    "abruptly",
-    "bandwagon",
-    "crypt",
-    "disavow",
-    "embezzle",
-    "fishhook",
-    "galaxy",
-    "injury",
-    "jukebox",
-    "khaki",
-    "luxury",
-    "microwave",
-    "nightclub",
-    "oxygen",
-    "pajama",
-    "quiz",
-    "strength",
-    "transcript",
-    "voodoo",
-    "witchcraft",
-    "yummy",
-    "zombie",
-]
+
 chosen_word = random.choice(word_list)
 
 display = []
